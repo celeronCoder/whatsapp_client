@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# App Breakdown
+
+## Frontend
+
+- React App
+- Axios ==> To fetch the database
+
+#### Firebase 
+
+- For Authentication
+- Hosting The frontend
+
+## Backend
+
+- Express for web Server 
+- NodeJS as the lang.
+- MongoDB as the Database
+
+#### WEB Sockets
+
+- __pusher__ that will fire axios to fetch for the real time
+- __MongoDB-ChangeTheme__ that will fire __pusher__ on change of the DB collection.
