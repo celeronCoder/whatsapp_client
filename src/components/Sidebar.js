@@ -13,7 +13,7 @@ function Sidebar() {
         <div className="sidebar">
             <div className="sidebar__header">
                 <Avatar
-                    src="https://avatars.githubusercontent.com/u/76873719?s=400&u=683c3e2bf8bdd78c1b7d71a54f018960fd0bfba7&v=4"
+                    src="https://avatars.dicebear.com/api/human/me.svg"
                 />
                 <div className="sidebar__headerRight">
                     <IconButton>
@@ -34,7 +34,7 @@ function Sidebar() {
                 </div>
             </div>
             <div className="sidebar__chats">
-                <SidebarChat />
+                <SidebarChat addNewChat />
                 <SidebarChat />
                 <SidebarChat />
                 <SidebarChat />

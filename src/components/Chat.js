@@ -27,7 +27,8 @@ function Chat({messages}) {
     return (
         <div className="chat">
             <div className="chat__header">
-            	<Avatar />
+            	{/* Sync this room avatar to the current active room avatar */}
+				<Avatar />
             	<div className="chat__headerInfo">
             		<h2>Room Name</h2>
             		<p>Last seen at....</p>
