@@ -1,3 +1,10 @@
+/*
+ * Using BEM Naming convention with class names
+    - className must start with small letter
+    - to define a styled component use double underscores (__)
+    - to define component of the component use camelCase there
+*/
+
 .app {
     display: grid;
     place-items: center;
