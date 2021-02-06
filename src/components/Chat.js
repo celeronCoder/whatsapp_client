@@ -1,5 +1,5 @@
 // * React-Hooks Imports
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 // * StyleSheet Import
 import "./css/chat.css";
@@ -14,7 +14,7 @@ import MicNoneIcon from '@material-ui/icons/MicNone';
 import axios from "../axios";
 
 
-function Chat({messages}) {
+function Chat({ messages }) {
 
 	// Using useState hook to get the input value of the chat message
 	const [input, setInput] = useState([])
@@ -38,6 +38,18 @@ function Chat({messages}) {
 		// * setting the input back to empty to clear the chat box after the message has been send!
 		setInput('');
 	}
+
+	// * useRef hook to state the div we want to scroll to the bottom for, the div must be placed after all the chats.
+	const messagesEndRef = useRef(null);
+
+	const scrollToBottom = () => {
+		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+	}
+
+	// using the scroll to the bottom function to run that every time the messages render.
+	useEffect(() => {
+		scrollToBottom();
+	}, [messages])
 
     return (
         <div className="chat">
@@ -81,6 +93,9 @@ function Chat({messages}) {
 					</p>
 					)
 				})}
+
+				{/* This DIV is to scroll to the bottom of the chat__body */}
+				<div ref={messagesEndRef} />
             </div>
             <div className="chat__footer">
             	<IconButton>
