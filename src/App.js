@@ -12,6 +12,12 @@ import Chat from "./components/Chat";
 import Pusher from "pusher-js";
 import axios from "./axios.js"; // local axios.js
 
+// * Importing auth essentials
+import { auth, provider } from "./firebase.js";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveUsers, setUserLogOutState, selectUserEmail, selectUserName } from "./features/userSlice"; 
+
+
 function App() {
 
 	//  * state of the messages of a room
@@ -48,17 +54,43 @@ function App() {
 
 	},[messages]); // * passing the message state in the useEffect to run pusher on messages
 
-	 // console.log(messages);
+	// console.log(messages);
+
+	// configuring SignIn and SignOut
+	
+	const dispatch = useDispatch();
+
+	const userName = useSelector(selectUserName);
+	const userEmail = useSelector(selectUserEmail);
+
+	const handleSignIn = () => {
+		auth.signInWithPopup(provider).then( (result) => {
+			dispatch(setActiveUsers({
+				userName: result.user.displayName,
+				userEmail: result.user.email
+			}))
+		})
+	};
+	const handleSignOut = () => {
+		auth.signOut()
+		.then(() => dispatch(setUserLogOutState() ) )
+		.catch((err) => alert(err.message));
+	};
 	
 	return (
 		<div className="app">
-			<div className="app__body">
-				{/* Sidebar */}
-				<Sidebar />
+			{
+				userName ? <div className="app__body">
+							<button onClick={ handleSignOut }>Sign Out</button>
 
-				{/* Chat Component */}
-				<Chat messages={messages} />
-			</div>
+							{/* Sidebar */}
+							<Sidebar />
+
+							{/* Chat Component */}
+							<Chat messages={messages} />
+						</div>
+				: <button onClick={ handleSignIn } >Sign In</button>
+			}
 		</div>
 	);
 }
