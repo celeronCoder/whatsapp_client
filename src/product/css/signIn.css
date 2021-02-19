@@ -1,0 +1,130 @@
+.app {
+  background: linear-gradient(226deg, #37ba99, #35806d9e);
+}
+
+.signInContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(225deg, #ffffff9e, #ffffff63);
+  backdrop-filter: blur(16px);
+  border-radius: 30px;
+  z-index: 10;
+  height: 80vh;
+}
+
+.signInContainer img {
+  height: 475px;
+}
+
+.signInContainer main {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.signInContainer main h1 {
+  color: #34e0b5;
+  font-size: xx-large;
+  padding: 10px;
+}
+
+.signInOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+}
+
+.signInOptions button {
+  font-size: 1.5rem;
+  border: none;
+  width: 100%;
+  flex: 1;
+  padding: 5px;
+  border-radius: 8px;
+  height: 3.2rem;
+  color: white;
+  font-weight: normal;
+  background: #34e0b5;
+  transition: all 0.1s ease;
+  outline-width: 0px;
+}
+
+.signInOptions button:hover {
+  background: #37ba99d0;
+  color: aliceblue;
+}
+
+.signInOptions svg {
+  height: 33px;
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+}
+
+.signInEmailForm {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 95%;
+  justify-content: space-between;
+  box-shadow: -2px 2px 6px -1px rgb(0 0 0 / 25%);
+  border-radius: 15px;
+}
+
+.signInEmailForm input {
+  height: 2.5rem;
+  width: 90%;
+  margin: 1rem 0;
+  border: 3px solid #34e0b5;
+  border-radius: 8px;
+  padding: 10px;
+  outline-width: 0;
+}
+
+.signInEmailForm h2 {
+  margin-bottom: 7px;
+}
+
+.signInEmailForm h3 {
+  margin-left: 5px;
+  transform: translateY(13px);
+  color: rgb(0 0 0 / 40%);
+}
+
+.signInButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.signInButtons button {
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  outline-width: 0;
+  padding: 7px;
+  width: 10rem;
+  border-radius: 7px;
+  color: white;
+  height: 100%;
+}
+
+.signInButtons button#signIn {
+  background: #34e0b5;
+}
+
+.signInButtons button#signUp {
+  border: 3px solid #34e0b5;
+  color: #34e0b5;
+}

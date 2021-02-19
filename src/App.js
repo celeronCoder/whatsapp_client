@@ -7,6 +7,7 @@ import './App.css';
 // * App components 
 import Sidebar from './components/Sidebar';
 import Chat from "./components/Chat";
+import SignIn from "./product/signIn";
 
 // * Importing pusher for the realtimeDB and axios for HTTP-XMLRequests
 import Pusher from "pusher-js";
@@ -81,7 +82,7 @@ function App() {
 		<div className="app">
 			{
 				userName ? <div className="app__body">
-							<button onClick={ handleSignOut }>Sign Out</button>
+							<button id="signOut" onClick={ handleSignOut }>Sign Out</button>
 
 							{/* Sidebar */}
 							<Sidebar />
@@ -89,7 +90,7 @@ function App() {
 							{/* Chat Component */}
 							<Chat messages={messages} />
 						</div>
-				: <button onClick={ handleSignIn } >Sign In</button>
+				: <SignIn handleSignIn={handleSignIn} />
 			}
 		</div>
 	);
