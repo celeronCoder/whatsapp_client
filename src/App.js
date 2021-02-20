@@ -14,7 +14,7 @@ import Pusher from "pusher-js";
 import axios from "./axios.js"; // local axios.js
 
 // * Importing auth essentials
-import { auth, provider } from "./firebase.js";
+import { auth, GoogleAuth, EmailAuth } from "./firebase.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveUsers, setUserLogOutState, selectUserEmail, selectUserName } from "./features/userSlice"; 
 
@@ -65,13 +65,22 @@ function App() {
 	const userEmail = useSelector(selectUserEmail);
 
 	const handleSignIn = () => {
-		auth.signInWithPopup(provider).then( (result) => {
+		auth.signInWithPopup(GoogleAuth).then( (result) => {
 			dispatch(setActiveUsers({
 				userName: result.user.displayName,
 				userEmail: result.user.email
 			}))
 		})
 	};
+
+	const handleEmailSignIn = () => {
+		auth.signInWithEmailAndPassword(EmailAuth)
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => console.error(err))
+	}
+
 	const handleSignOut = () => {
 		auth.signOut()
 		.then(() => dispatch(setUserLogOutState() ) )
@@ -90,7 +99,7 @@ function App() {
 							{/* Chat Component */}
 							<Chat messages={messages} />
 						</div>
-				: <SignIn handleSignIn={handleSignIn} />
+				: <SignIn handleSignIn={ handleSignIn }/>
 			}
 		</div>
 	);
