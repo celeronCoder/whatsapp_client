@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./css/signIn.css";
 
-function signIn({ handleSignIn }) {
+function signIn({ handleSignIn, handleEmailSignIn }) {
+
+    const [email, setEmail ] = useState([]);
+
+    const [ password, setPassword ] = useState([]);
+
+    setEmailPassword = () => {
+        // TODO: get the property form the input fields and set that to the state and export that to the App 
+    }
+
     return (
         <div className="signInContainer">
             <img src="https://signal.org/assets/features/Stickers-51967388a365dff9f56b8c11b02e461a3a598a500f825d751a93c9e16e9f7800.png" alt="Chat Free" />
@@ -20,7 +29,7 @@ function signIn({ handleSignIn }) {
                 </div>
                 <div className="signInButtons">
                     <button id="signUp">Sign Up</button>
-                    <button id="signIn" onClick={ handleSignIn }>Sign In</button>
+                    <button id="signIn" onClick={ handleEmailSignIn }>Sign In</button>
                 </div>
             </main>
         </div>
@@ -28,3 +37,5 @@ function signIn({ handleSignIn }) {
 }
 
 export default signIn
+
+export { email, password }
