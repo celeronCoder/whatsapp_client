@@ -3,13 +3,13 @@ import "./css/signIn.css";
 
 function signIn({ handleSignIn, handleEmailSignIn }) {
 
-    const [email, setEmail ] = useState([]);
+    // const [email, setEmail ] = useState([]);
 
-    const [ password, setPassword ] = useState([]);
+    // const [ password, setPassword ] = useState([]);
 
-    setEmailPassword = () => {
+    // const setEmailPassword = () => {
         // TODO: get the property form the input fields and set that to the state and export that to the App 
-    }
+    // }
 
     return (
         <div className="signInContainer">
@@ -38,4 +38,4 @@ function signIn({ handleSignIn, handleEmailSignIn }) {
 
 export default signIn
 
-export { email, password }
+// export { email, password };
